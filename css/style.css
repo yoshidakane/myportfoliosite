@@ -1,0 +1,494 @@
+@charset "UTF-8";
+
+/* --------------------------------
+ * base
+ * -------------------------------- */
+html {
+  font-size: 62.5%;
+}
+body {
+  background: #151515 url('../images/bg1.png') no-repeat fixed left bottom;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: Raleway, "Hiragino Kaku Gothic ProN",  Meiryo,  sans-serif;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+/* --------------------------------
+ * parts
+ * -------------------------------- */
+.heading {
+  position: relative;
+  display: inline-block;
+  margin: 30px 0 15px;
+  padding-bottom: 15px;
+  letter-spacing: 2px;
+  font-size: 4rem;
+}
+/*
+.heading::before,
+.heading::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid #999;
+}
+.heading::before {
+  bottom: 5px;
+}
+*/
+.button {
+  display: inline-block;
+  width: 200px;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #afa58d;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+.button:hover {
+  opacity: 0.8;
+  }
+.button-showy {
+  background-color: #D29E04;
+}
+.button-ghost {
+  border: 1px solid #151515;
+  opacity: 0.6;
+  background-color: #e9e6e6;
+}
+
+.fadein {
+    animation-name: fadein;
+    animation-duration: 2s;
+}
+@keyframes fadein {
+from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+
+
+/* --------------------------------
+ * header
+ * -------------------------------- */
+.header {
+  padding: 70px 30px 80px;
+  background: linear-gradient(125deg, #42AB84, #f00) fixed, url(http://webcreatorbox.com/sample/images/beach-footprint.jpg);
+  background-repeat: no-repeat;
+  background-blend-mode: screen;
+  background-size: cover;
+}
+.site-title-sub {
+  margin: 0 0 30px;
+  letter-spacing: 0.7px;
+  font-size: 2.2rem;
+}
+.site-title-sub::before,
+.site-title-sub::after {
+  content: '';
+  display: inline-block;
+  width: 140px;
+  height: 2px;
+  margin: 0 30px;
+  background-color: #fff;
+  vertical-align: middle;
+}
+.site-title {
+  margin: 50px 0 40px;
+  letter-spacing: 5px;
+  font-size: 10rem;
+  font-family: 'Sacramento', cursive;
+}
+.site-description {
+  margin-bottom: 50px;
+  color: #888;
+  font-size: 1.6rem;
+}
+.buttons .button {
+  margin: 10px;
+}
+
+
+/* --------------------------------
+ * about
+ * -------------------------------- */
+.about {
+  padding: 80px 30px;
+  background-color: #e9e6e6;
+  color: #333;
+}
+.about-text {
+  margin: 30px 0;
+  line-height: 2.5;
+}
+
+
+/* --------------------------------
+ * works
+ * -------------------------------- */
+.works {
+  padding: 80px 0;
+  background-color: #a6cfc7;
+}
+.works-wrapper {
+  display: table;
+  width: 100%;
+  margin-top: 60px;
+  table-layout: fixed;
+}
+.work-box {
+  position: relative;
+  display: table-cell;
+}
+.work-image {
+  display: block;
+  width: 100%;
+  margin: 0 0 60%;
+}
+.work-description {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 50%;
+  overflow-y: auto;
+}
+.work-description-inner {
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+.work-text {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 1.5rem;
+  line-height: 2;
+  color:#000000;
+}
+.work-text .button {
+  width: 60%;
+  margin-top: 20px;
+  padding: 3px;
+  color:#000000;
+}
+.work-box::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.18;
+  
+}
+.work-box.tree::after {
+  background-image: url('../images/building.png');
+}
+.work-box.building::after {
+  background-image: url('../images/tree.jpg');
+}
+.work-box.lake::after {
+  background-image: url('../images/lake.jpg');
+}
+.work-box:nth-child(odd) .work-image {
+  margin: 60% 0 0;
+}
+.work-box:nth-child(odd) .work-description,
+.work-box:nth-child(odd)::after {
+  top: 0;
+}
+
+$linear: cubic-bezier(0.250, 0.250, 0.750, 0.750);
+$ease: cubic-bezier(0.250, 0.100, 0.250, 1.000);
+$ease-in: cubic-bezier(0.420, 0.000, 1.000, 1.000);
+$ease-out: cubic-bezier(0.000, 0.000, 0.580, 1.000);
+$ease-in-out: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+
+$easeInQuad: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+$easeInCubic: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$easeInQuart: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$easeInQuint: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+$easeInSine: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$easeInExpo: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$easeInCirc: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+$easeInBack: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+
+$easeOutQuad: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+$easeOutCubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+$easeOutQuart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$easeOutSine: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+$easeOutExpo: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$easeOutCirc: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+$easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+$easeInOutQuart: cubic-bezier(0.770, 0.000, 0.275, 1.000);
+$easeInOutQuint: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+$easeInOutSine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+$easeInOutExpo: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+$easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+body{
+  font-size: 1.6rem;
+  padding-top: 50px;
+  background:url(../images/bg1.png);
+}
+  a{
+      text-decoration: none;
+  }
+}
+
+
+
+/* --------------------------------
+ * contact
+ * -------------------------------- */
+.contact {
+  padding: 80px 0 150px;
+}
+.contact-form {
+  width: 50%;
+  margin: 50px auto 0;
+}
+.contact-form input[type=text],
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 15px;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+}
+.contact-form input[type=text]:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+}
+.contact-form textarea {
+  height: 150px;
+}
+.contact-form input[type=submit] {
+  display: block;
+  width: 200px;
+  margin: 40px auto 0;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+.contact-form input[type=submit]:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+/* --------------------------------
+ * footer
+ * -------------------------------- */
+.footer {
+  padding: 12px 0;
+  font-size: 1.3rem;
+}
+
+/* --------------------------------
+ * skills
+ * -------------------------------- */
+
+.skills {
+  padding: 80px 0;
+  background-color: #e9e6e6;
+  color: #333;
+}
+.skill-box {
+  display: table-cell;
+}
+.skill-icon {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  border: 4px solid;
+  border-radius: 50%;
+  color: #f1b400;
+  font-size: 8rem;
+  line-height: 142px;
+}
+.skill-title {
+  margin: 0 20px 20px;
+  font-size: 2rem;
+}
+.skill-text {
+  margin: 0 20px;
+  line-height: 2;
+}
+.skills-wrapper {
+  display: table;
+  width: 80%;
+  margin: 50px auto 0;
+  table-layout: fixed;
+}
+
+/* --------------------------------
+ * smart phone
+ * -------------------------------- */
+@media (max-width: 1024px) {
+  body {
+  	background:　#151515 no-repeat fixed left bottom;
+  }
+.skills {
+  padding: 80px 0;
+  background-color: #e9e6e6;
+  color: #333;
+}
+}
+
+@media (max-width: 768px) {
+  body {
+  	background:　#151515 no-repeat fixed left bottom;
+    font-size: 1.3rem;
+  }
+  .heading {
+    margin-top: 20px;
+    font-size: 2.5rem;
+  }
+  .button:hover {
+    opacity: 1;
+  }
+
+  /* --- header --- */
+  .header {
+    padding-top: 60px;
+  }
+  .site-title-sub {
+    font-size: 1.7rem;
+  }
+  .site-title-sub::before,
+  .site-title-sub::after {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+  .site-title {
+    margin-top: 35px;
+    font-size: 5rem;
+  }
+
+  /* --- about --- */
+  .about-text {
+    line-height: 1.8;
+  }
+
+  /* --- works --- */
+  .works-wrapper,
+  .work-box {
+    display: block;
+  }
+  .work-image {
+    display: none;
+  }
+  .work-description {
+    position: relative;
+  }
+  .work-box::after {
+    top: 0;
+    height: 100%;
+    background-size: cover;
+    transform: none;
+  }
+
+  /* --- skills --- */
+  .skills-wrapper,
+  .skill-box {
+    display: block;
+  }
+  .skill-box {
+    margin: 40px auto;
+  }
+  .skill-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 5rem;
+    line-height: 92px;
+  }
+  .skill-text {
+    margin: 0;
+  }
+　.skills {
+  padding: 80px 0;
+  background-color: #e9e6e6;
+  color: #333;
+　}
+  /* --- contact --- */
+  .contact {
+    padding-bottom: 80px;
+  }
+  .contact-form {
+    width: 80%;
+  }
+}
+
+
+/* --------------------------------
+ *
+ * 31行目 .heading::before, .heading::after
+ * 
+ * -------------------------------- */
+
+.heading::before,
+.heading::after {
+  content: '';
+  display: inline-block;
+  width: 0.3em;
+  height: 0.3em;
+  margin: 0 0.5em;
+  border: 1px solid;
+  vertical-align: 0.2em;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.work-box {
+  overflow: hidden;
+}
+.work-image {
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+.work-box:nth-child(odd) .work-image {
+  -webkit-transform-origin: top center;
+  transform-origin: top center;
+}
+.work-box:nth-child(even) .work-image {
+  -webkit-transform-origin: bottom center;
+  transform-origin: bottom center;
+}
+.work-box:hover .work-image {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
